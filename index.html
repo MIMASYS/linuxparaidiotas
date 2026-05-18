@@ -1,39 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
-   <>
+<!-- lang="es" ayuda a buscadores y lectores de pantalla -->
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux Para Idiotas</title>
     
-    <!-- ESTA ES LA LÍNEA QUE CONECTA CON TU ARCHIVO NUEVO -->
+    <!-- Conecta con tu archivo style.css (el que tiene el tema claro) -->
     <link rel="stylesheet" href="style.css">
-    
 </head>
+<!-- ↑ Aquí cerramos correctamente el head -->
 
 <body>
 
-    <div class="container">
-
-        <!-- kana.png-->
-        <img src="img/kana.png" alt="Kana Anaberal">
-
-        <h1>Linux Para Idiotas</h1>
-
-        <p>
-            Estamos cocinando algo...
-        </p>
-
-        <p>
-            Dios te bendiga.<br>
-            Si tienes alguna duda o sugerencia, metetela por el **** o enviala al discord oficial https://discord.gg/abeCYHQB.<br>
-            te quiero mucho.
-        </p>
-
-        <div class="small-text">
-            Sitio en construcción.
+    <!-- ========================================== -->
+    <!-- SECCIÓN 1: PRESENTACIÓN (con tu imagen Kana) -->
+    <!-- ========================================== -->
+    <header class="hero">
+        <div class="container">
+            <!-- Imagen de Kana (asegúrate que esté en img/kana.png) -->
+            <img src="img/kana.png" alt="Kana - Linux Para Idiotas" class="hero-image">
+            
+            <h1>Linux Para Idiotas</h1>
+            <p class="subtitle">Estamos cocinando algo...</p>
+            
+            <p class="message">
+                Dios te bendiga.<br>
+                Si tienes alguna duda o sugerencia, métetela por el **** 
+                o envíala al discord oficial 
+                <a href="https://discord.gg/abeCYHQB" target="_blank">https://discord.gg/abeCYHQB</a>.<br>
+                te quiero mucho.
+            </p>
+            
+            <p class="construction">Sitio en construcción.</p>
         </div>
+    </header>
 
-    </div>
+    <!-- ========================================== -->
+    <!-- SECCIÓN 2: BUSCADOR -->
+    <!-- ========================================== -->
+    <section class="search-section">
+        <div class="container">
+            <input type="text" id="buscador" placeholder="🔍 Buscar comando (ej: ls, chmod, grep...)">
+        </div>
+    </section>
 
+    <!-- ========================================== -->
+    <!-- SECCIÓN 3: DICCIONARIO (¡Aquí están las tarjetas!) -->
+    <!-- ========================================== -->
+    <main class="container">
+        <section id="lista-terminos">
+            
+            <!-- TÉRMINO 1: ls -->
+            <article class="termino">
+                <h2>ls</h2>
+                <p class="definicion">
+                    Lista el contenido de un directorio. Es el comando básico para ver 
+                    qué archivos y carpetas hay en una ubicación.
+                </p>
+                <details>
+                    <summary>📖 Ejemplos de uso</summary>
+                    <div class="codigo">
+                        <code>ls</code> → Lista archivos simples<br>
+                        <code>ls -la</code> → Muestra TODO (incluidos ocultos)<br>
+                        <code>ls -lh</code> → Muestra tamaños en KB/MB/GB
+                    </div>
+                </details>
+            </article>
+
+            <!-- TÉRMINO 2: cd -->
+            <article class="termino">
+                <h2>cd</h2>
+                <p class="definicion">
+                    "Change Directory" - Cambia de carpeta. Te mueve por el sistema 
+                    de archivos como "Entrar" en el explorador de Windows.
+                </p>
+                <details>
+                    <summary>📖 Ejemplos de uso</summary>
+                    <div class="codigo">
+                        <code>cd Documentos</code> → Entra a Documentos<br>
+                        <code>cd ..</code> → Sube una carpeta (atrás)<br>
+                        <code>cd ~</code> → Vuelve a tu carpeta personal
+                    </div>
+                </details>
+            </article>
+
+            <!-- TÉRMINO 3: chmod -->
+            <article class="termino">
+                <h2>chmod</h2>
+                <p class="definicion">
+                    Cambia los permisos de archivos y carpetas. Controla quién puede 
+                    leer, escribir o ejecutar algo.
+                </p>
+                <details>
+                    <summary>📖 Ejemplos de uso</summary>
+                    <div class="codigo">
+                        <code>chmod +x script.sh</code> → Hace ejecutable un archivo<br>
+                        <code>chmod 755 archivo</code> → Dueño: todo, Otros: leer+ejecutar<br>
+                        <code>chmod 600 secreto.txt</code> → Solo tú puedes leer/escribir
+                    </div>
+                </details>
+            </article>
+
+            <!-- 📝 CÓMO AÑADIR MÁS TÉRMINOS:
+                 1. Copia desde <article class="termino"> hasta </article>
+                 2. Pégalo aquí debajo
+                 3. Cambia el texto de <h2>, <p class="definicion"> y los ejemplos
+            -->
+
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- PIE DE PÁGINA -->
+    <!-- ========================================== -->
+    <footer>
+        <p>Linux Para Idiotas © 2026 | Proyecto escolar</p>
+    </footer>
+
+    <!-- JavaScript (aún vacío, pero preparado para el buscador) -->
+    <script src="script.js" defer></script>
 </body>
 </html>
