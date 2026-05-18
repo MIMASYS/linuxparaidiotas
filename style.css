@@ -1,20 +1,37 @@
 /* =========================================
-   1. CONFIGURACIÓN BÁSICA
+   1. VARIABLES DE COLOR (¡MODIFICA AQUÍ!)
    ========================================= */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+    --fondo: #f8f9fa;          /* Gris muy suave, ideal para lectura prolongada */
+    --tarjeta: #ffffff;        /* Blanco puro para las tarjetas */
+    --texto: #212529;          /* Gris oscuro (mejor que negro puro) */
+    --texto-suave: #6c757d;    /* Gris medio para subtítulos y pies */
+    --primario: #0d6efd;       /* Azul profesional (estándar educativo) */
+    --primario-hover: #0b5ed7; /* Azul más oscuro para interacciones */
+    --borde: #dee2e6;          /* Gris claro para bordes sutiles */
+    --codigo-fondo: #f1f3f5;   /* Fondo para bloques de código */
+    --codigo-texto: #d63384;   /* Color destacado para comandos */
+    --sombra: 0 2px 8px rgba(0,0,0,0.08); /* Sombra suave y moderna */
+    --radio: 12px;             /* Redondeo de esquinas */
 }
 
 /* =========================================
-   2. CUERPO (TEMA CLARO)
+   2. RESET Y BASE
    ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #f4f4f9; /* Gris muy suave, casi blanco (agradable a la vista) */
-    color: #333333;            /* Texto gris oscuro (mejor que negro puro para leer) */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--fondo);
+    color: var(--texto);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* =========================================
@@ -22,37 +39,35 @@ body {
    ========================================= */
 .hero {
     text-align: center;
-    padding: 50px 20px;
-    background-color: #ffffff; /* Fondo blanco limpio */
-    border-bottom: 2px solid #ddd; /* Línea sutil de separación */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra muy suave */
+    padding: 3rem 1rem 2rem;
+    background: var(--tarjeta);
+    border-bottom: 1px solid var(--borde);
 }
 
-/* Logo nuevo */
 .hero-image {
-    width: 150px; /* Tamaño moderado para un logo */
+    width: 120px;
     height: auto;
-    margin-bottom: 20px;
-    /* Sin sombras extravagantes, estilo limpio */
+    margin: 0 auto 1rem;
+    display: block;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #222; /* Título casi negro */
-    margin-bottom: 10px;
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
 }
 
-.subtitle {
-    font-size: 1.2rem;
-    color: #666; /* Subtítulo gris medio */
-    margin-bottom: 20px;
+.hero .subtitle {
+    color: var(--texto-suave);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
 }
 
 /* =========================================
    4. BUSCADOR
    ========================================= */
 .search-section {
-    padding: 20px;
+    padding: 1.5rem 1rem;
     display: flex;
     justify-content: center;
 }
@@ -60,101 +75,117 @@ h1 {
 #buscador {
     width: 100%;
     max-width: 600px;
-    padding: 15px;
-    font-size: 18px;
-    background-color: #ffffff;
-    color: #333;
-    border: 2px solid #ccc; /* Borde gris */
-    border-radius: 8px;
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid var(--borde);
+    border-radius: 50px;
+    background: var(--tarjeta);
+    color: var(--texto);
     outline: none;
-    transition: border 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
 }
 
 #buscador:focus {
-    border-color: #007bff; /* Borde azul al escribir (estándar profesional) */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    border-color: var(--primario);
+    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+}
+
+#buscador::placeholder {
+    color: var(--texto-suave);
 }
 
 /* =========================================
-   5. CONTENEDOR PRINCIPAL
+   5. CONTENIDO PRINCIPAL
    ========================================= */
 .container {
+    flex: 1;
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1rem;
+    width: 100%;
 }
 
 /* =========================================
    6. TARJETAS DE TÉRMINOS
    ========================================= */
 .termino {
-    background-color: #ffffff; /* Tarjeta blanca */
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil */
-    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--sombra);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .termino:hover {
-    transform: translateY(-2px); /* Efecto elevación suave */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-color: #007bff; /* Borde azul al pasar el mouse */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
 .termino h2 {
-    color: #007bff; /* Título azul profesional */
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 10px;
+    font-size: 1.5rem;
+    color: var(--primario);
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--fondo);
 }
 
-.termino p {
-    color: #444;
+.definicion {
     font-size: 1.05rem;
+    margin-bottom: 1rem;
 }
 
 /* =========================================
-   7. EJEMPLOS (CLEAN CODE)
+   7. EJEMPLOS DESPLEGABLES
    ========================================= */
 details {
-    margin-top: 15px;
-    background-color: #f8f9fa; /* Fondo gris muy claro */
-    padding: 15px;
-    border-radius: 6px;
-    border: 1px solid #e9ecef;
+    background: var(--codigo-fondo);
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    overflow: hidden;
 }
 
 summary {
+    padding: 0.8rem 1rem;
     cursor: pointer;
-    font-weight: bold;
-    color: #555;
-    transition: color 0.2s;
+    font-weight: 600;
+    color: var(--texto-suave);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-summary:hover {
-    color: #007bff;
+summary::-webkit-details-marker { display: none; }
+
+summary::before {
+    content: "▶";
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+
+details[open] summary::before {
+    transform: rotate(90deg);
 }
 
 .codigo {
-    margin-top: 10px;
-    font-family: 'Consolas', 'Courier New', monospace; /* Fuente técnica legible */
-    color: #333;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    border-left: 4px solid #007bff; /* Línea azul indicadora */
+    padding: 1rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    color: var(--texto);
+    background: #ffffff;
+    border-top: 1px solid var(--borde);
+    white-space: pre-wrap;
 }
 
 code {
-    background-color: #e2e3e5;
-    padding: 2px 6px;
+    background: var(--codigo-fondo);
+    padding: 0.2em 0.4em;
     border-radius: 4px;
-    color: #d63384; /* Color distinto para resaltar comandos */
-    font-weight: bold;
-    font-family: 'Consolas', monospace;
+    color: var(--codigo-texto);
+    font-weight: 600;
+    font-family: inherit;
 }
 
 /* =========================================
@@ -162,10 +193,18 @@ code {
    ========================================= */
 footer {
     text-align: center;
-    padding: 30px;
-    color: #777;
+    padding: 2rem 1rem;
+    color: var(--texto-suave);
     font-size: 0.9rem;
-    background-color: #ffffff;
-    border-top: 1px solid #ddd;
-    margin-top: 40px;
+    border-top: 1px solid var(--borde);
+    background: var(--tarjeta);
+}
+
+/* =========================================
+   9. RESPONSIVE (MÓVILES)
+   ========================================= */
+@media (max-width: 600px) {
+    .hero h1 { font-size: 1.8rem; }
+    .termino { padding: 1.2rem; }
+    #buscador { font-size: 16px; } /* Evita zoom automático en iOS */
 }
