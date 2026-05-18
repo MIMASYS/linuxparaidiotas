@@ -1,0 +1,171 @@
+/* =========================================
+   1. CONFIGURACIÓN BÁSICA
+   ========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   2. CUERPO (TEMA CLARO)
+   ========================================= */
+body {
+    background-color: #f4f4f9; /* Gris muy suave, casi blanco (agradable a la vista) */
+    color: #333333;            /* Texto gris oscuro (mejor que negro puro para leer) */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* =========================================
+   3. CABECERA (HERO)
+   ========================================= */
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff; /* Fondo blanco limpio */
+    border-bottom: 2px solid #ddd; /* Línea sutil de separación */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra muy suave */
+}
+
+/* Logo nuevo */
+.hero-image {
+    width: 150px; /* Tamaño moderado para un logo */
+    height: auto;
+    margin-bottom: 20px;
+    /* Sin sombras extravagantes, estilo limpio */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #222; /* Título casi negro */
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #666; /* Subtítulo gris medio */
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   4. BUSCADOR
+   ========================================= */
+.search-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#buscador {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #ccc; /* Borde gris */
+    border-radius: 8px;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+#buscador:focus {
+    border-color: #007bff; /* Borde azul al escribir (estándar profesional) */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+/* =========================================
+   5. CONTENEDOR PRINCIPAL
+   ========================================= */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================================
+   6. TARJETAS DE TÉRMINOS
+   ========================================= */
+.termino {
+    background-color: #ffffff; /* Tarjeta blanca */
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.termino:hover {
+    transform: translateY(-2px); /* Efecto elevación suave */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #007bff; /* Borde azul al pasar el mouse */
+}
+
+.termino h2 {
+    color: #007bff; /* Título azul profesional */
+    margin-bottom: 10px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.termino p {
+    color: #444;
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   7. EJEMPLOS (CLEAN CODE)
+   ========================================= */
+details {
+    margin-top: 15px;
+    background-color: #f8f9fa; /* Fondo gris muy claro */
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    transition: color 0.2s;
+}
+
+summary:hover {
+    color: #007bff;
+}
+
+.codigo {
+    margin-top: 10px;
+    font-family: 'Consolas', 'Courier New', monospace; /* Fuente técnica legible */
+    color: #333;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 4px solid #007bff; /* Línea azul indicadora */
+}
+
+code {
+    background-color: #e2e3e5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #d63384; /* Color distinto para resaltar comandos */
+    font-weight: bold;
+    font-family: 'Consolas', monospace;
+}
+
+/* =========================================
+   8. PIE DE PÁGINA
+   ========================================= */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 0.9rem;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
