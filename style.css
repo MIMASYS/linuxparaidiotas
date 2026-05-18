@@ -207,6 +207,8 @@ footer {
     .hero h1 { font-size: 1.8rem; }
     .termino { padding: 1.2rem; }
     #buscador { font-size: 16px; } /* Evita zoom automático en iOS */
+
+}
 /* =========================================
    10. PESTAÑAS DE NAVEGACIÓN (TABS)
    ========================================= */
@@ -336,5 +338,4 @@ footer {
     .hero-image {
         width: 100px;
     }
-}
 }
