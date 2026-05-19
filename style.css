@@ -329,3 +329,114 @@ footer {
         width: 100px;
     }
 }
+/* =========================================
+   14. SUB-PESTAÑAS PARA MÁQUINAS VIRTUALES
+   ========================================= */
+.vm-wrapper {
+  padding: 1rem 0;
+}
+
+.vm-nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--borde);
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap; /* Se adapta a móviles */
+}
+
+.vm-btn {
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.vm-btn:hover {
+  color: var(--primario);
+}
+
+.vm-btn.active {
+  color: var(--primario);
+  border-bottom-color: var(--primario);
+  font-weight: 600;
+}
+
+/* Contenido de cada sub-pestaña */
+.vm-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.vm-content.active {
+  display: block;
+}
+
+.vm-intro {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--codigo-fondo);
+  border-left: 4px solid var(--primario);
+  border-radius: 0 8px 8px 0;
+}
+
+/* Bloques de pasos del tutorial */
+.paso {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: var(--tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.paso h4 {
+  color: var(--primario);
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.paso p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+/* Imágenes de tutoriales */
+.vm-img {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--borde);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.vm-note {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #e7f3ff;
+  border-radius: 8px;
+  color: #0550ae;
+}
+
+/* Responsive para sub-pestañas */
+@media (max-width: 600px) {
+  .vm-nav {
+    gap: 0.3rem;
+  }
+  .vm-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  .paso {
+    padding: 1rem;
+  }
+}

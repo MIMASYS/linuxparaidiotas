@@ -59,4 +59,24 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================= */
     // Si quieres añadir más interacciones (modo oscuro, copiar comandos, etc.),
     // solo agrégalas aquí abajo. Este archivo es tu "centro de control".
+        /* =========================================
+       4. LÓGICA DE SUB-PESTAÑAS (MÁQUINAS VIRTUALES)
+       ========================================= */
+    const botonesVM = document.querySelectorAll('.vm-btn');
+    const contenidosVM = document.querySelectorAll('.vm-content');
+
+    botonesVM.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Quitar clase active de todos
+            botonesVM.forEach(b => b.classList.remove('active'));
+            contenidosVM.forEach(c => c.classList.remove('active'));
+
+            // Activar el clickeado
+            boton.classList.add('active');
+
+            // Mostrar su contenido
+            const idVM = boton.getAttribute('data-vm');
+            document.getElementById(idVM).classList.add('active');
+        });
+    });
 });

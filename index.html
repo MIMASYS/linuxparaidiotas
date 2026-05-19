@@ -69,23 +69,76 @@
         </section>
 
         <!-- PESTAÑA 2: MÁQUINAS VIRTUALES (vacía para que tú la llenes) -->
-        <section id="vm" class="tab-content">
-            <div class="tab-placeholder">
-                <h2>💻 Creación de Máquinas Virtuales</h2>
-                <p><em>Contenido en construcción. Aquí irán los pasos para instalar VirtualBox, VMware, etc.</em></p>
-                <!-- ✏️ BORRA lo de arriba y añade tu contenido aquí -->
-            </div>
-        </section>
+        <!-- PESTAÑA 2: MÁQUINAS VIRTUALES -->
+<section id="vm" class="tab-content">
+  <div class="vm-wrapper">
+    
+    <!-- NAVEGACIÓN INTERNA (SUB-PESTAÑAS) -->
+    <nav class="vm-nav">
+      <button class="vm-btn active" data-vm="virtualbox"> VirtualBox</button>
+      <button class="vm-btn" data-vm="vmware"> VMware</button>
+      <button class="vm-btn" data-vm="proxmox"> Proxmox</button>
+      <button class="vm-btn" data-vm="azure">️ Azure</button>
+    </nav>
 
-        <!-- PESTAÑA 3: ENLACES Y ACERCA DE -->
-        <section id="enlaces" class="tab-content">
-            <div class="tab-placeholder">
-                <h2>🔗 Enlaces y Acerca de</h2>
-                <p><em>Aquí puedes poner links útiles, bibliografía y información del proyecto.</em></p>
-                <!-- ✏️ BORRA lo de arriba y añade tu contenido aquí -->
-            </div>
-        </section>
+    <!-- CONTENIDO: VIRTUALBOX (Activo por defecto) -->
+    <div id="virtualbox" class="vm-content active">
+      <h2>📦 Oracle VirtualBox</h2>
+      <p class="vm-intro">
+        VirtualBox es un software de virtualización multiplataforma. 
+        Te permite crear "computadoras dentro de tu computadora" para probar Linux sin riesgos.
+      </p>
 
+      <!-- TUTORIAL 1: LINUX MINT -->
+      <h3>🎓 Tutorial 1: Instalar Linux Mint en VirtualBox</h3>
+      
+      <!-- PASO 1 -->
+      <div class="paso">
+        <h4>Paso 1: Descargar e instalar VirtualBox</h4>
+        <p>Ve al sitio oficial y descarga la versión para tu sistema operativo.</p>
+        <!-- REEMPLAZA "img/vm/paso1.png" con tu imagen real -->
+        <img src="img/vm/paso1.png" alt="Captura de descarga de VirtualBox" class="vm-img">
+      </div>
+
+      <!-- PASO 2 -->
+      <div class="paso">
+        <h4>Paso 2: Crear la máquina virtual</h4>
+        <p>Abre VirtualBox → "Nueva" → Nombre: Linux Mint → Tipo: Linux → Versión: Ubuntu (64-bit).</p>
+        <img src="img/vm/paso2.png" alt="Configuración de nueva VM" class="vm-img">
+      </div>
+
+      <!-- PASO 3 -->
+      <div class="paso">
+        <h4>Paso 3: Asignar memoria y disco</h4>
+        <p>Recomendado: 4GB RAM mínimo, 25GB de disco duro dinámico.</p>
+        <img src="img/vm/paso3.png" alt="Asignación de recursos" class="vm-img">
+      </div>
+
+      <!-- ✏️ PARA AÑADIR MÁS PASOS: COPIA UN BLOQUE <div class="paso"> Y PÉGALO AQUÍ -->
+      
+      <p class="vm-note">💡 <strong>Tip:</strong> Recuerda activar la virtualización (VT-x/AMD-V) en la BIOS de tu PC.</p>
+    </div>
+
+    <!-- CONTENIDO: VMWARE (Vacío, listo para que lo llenes después) -->
+    <div id="vmware" class="vm-content">
+      <h2>🔷 VMware Workstation Player</h2>
+      <p><em>Contenido en construcción. Aquí irá la guía paso a paso.</em></p>
+    </div>
+
+    <!-- CONTENIDO: PROXMOX -->
+    <div id="proxmox" class="vm-content">
+      <h2>🐧 Proxmox VE</h2>
+      <p><em>Contenido en construcción. Servidores virtualizados y contenedores.</em></p>
+    </div>
+
+    <!-- CONTENIDO: AZURE -->
+    <div id="azure" class="vm-content">
+      <h2>☁️ Azure Virtual Machines</h2>
+      <p><em>Contenido en construcción. Máquinas virtuales en la nube de Microsoft.</em></p>
+    </div>
+
+  </div>
+</section>
         <!-- PESTAÑA 4: COMUNIDAD -->
         <section id="comunidad" class="tab-content">
             <div class="tab-placeholder">
