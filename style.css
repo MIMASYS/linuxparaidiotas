@@ -447,8 +447,6 @@ footer {
 body {
     /* Imagen de fondo */
     background-image: 
-        /* Capa oscura semi-transparente SOBRE la imagen (para que el texto se lea) */
-        linear-gradient(rgba(30, 58, 138, 0.7), rgba(30, 58, 138, 0.8)),
         /* TU IMAGEN AQUÍ */
         url('img/fondoprueba.png');
     
