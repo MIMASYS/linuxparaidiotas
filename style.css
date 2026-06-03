@@ -1,22 +1,22 @@
 /* =========================================
-   1. VARIABLES DE COLOR (¡MODIFICA AQUÍ!)
+   1. VARIABLES DE COLOR
    ========================================= */
 :root {
-    --fondo: #f8f9fa;          /* Gris muy suave, ideal para lectura prolongada */
-    --tarjeta: #ffffff;        /* Blanco puro para las tarjetas */
-    --texto: #212529;          /* Gris oscuro (mejor que negro puro) */
-    --texto-suave: #6c757d;    /* Gris medio para subtítulos y pies */
-    --primario: #0d6efd;       /* Azul profesional (estándar educativo) */
-    --primario-hover: #0b5ed7; /* Azul más oscuro para interacciones */
-    --borde: #dee2e6;          /* Gris claro para bordes sutiles */
-    --codigo-fondo: #f1f3f5;   /* Fondo para bloques de código */
-    --codigo-texto: #d63384;   /* Color destacado para comandos */
-    --sombra: 0 2px 8px rgba(0,0,0,0.08); /* Sombra suave y moderna */
-    --radio: 12px;             /* Redondeo de esquinas */
+    --fondo: #f8f9fa;
+    --tarjeta: #ffffff;
+    --texto: #212529;
+    --texto-suave: #6c757d;
+    --primario: #0d6efd;
+    --primario-hover: #0b5ed7;
+    --borde: #dee2e6;
+    --codigo-fondo: #f1f3f5;
+    --codigo-texto: #d63384;
+    --sombra: 0 2px 8px rgba(0,0,0,0.08);
+    --radio: 12px;
 }
 
 /* =========================================
-   2. RESET Y BASE
+   2. RESET Y BASE (FONDO OPTIMIZADO)
    ========================================= */
 * {
     margin: 0;
@@ -26,21 +26,27 @@
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background-color: var(--fondo);
     color: var(--texto);
     line-height: 1.6;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    
+    /* Fondo con imagen sin overlay */
+    background: url('img/fondoprueba.png') center/cover no-repeat fixed #1e3a8a;
 }
 
 /* =========================================
-   3. CABECERA (HERO)
+   3. CABECERA Y PIE DE PÁGINA
    ========================================= */
+.hero, footer {
+    background: rgba(255, 255, 255, 0.95); /* Semi-transparente para legibilidad */
+    backdrop-filter: blur(8px); /* Efecto vidrio sutil */
+}
+
 .hero {
     text-align: center;
     padding: 3rem 1rem 2rem;
-    background: var(--tarjeta);
     border-bottom: 1px solid var(--borde);
 }
 
@@ -51,11 +57,7 @@ body {
     display: block;
 }
 
-.hero h1 {
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
-}
-
+.hero h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
 .hero .subtitle {
     color: var(--texto-suave);
     font-size: 1.1rem;
@@ -63,9 +65,26 @@ body {
     margin: 0 auto 1.5rem;
 }
 
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--borde);
+    margin-top: auto; /* Empuja el footer al final si hay poco contenido */
+}
+
 /* =========================================
-   4. BUSCADOR
+   4. CONTENEDOR Y BUSCADOR
    ========================================= */
+.container {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+    width: 100%;
+}
+
 .search-section {
     padding: 1.5rem 1rem;
     display: flex;
@@ -90,26 +109,83 @@ body {
     box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
 }
 
-#buscador::placeholder {
+#buscador::placeholder { color: var(--texto-suave); }
+
+/* =========================================
+   5. NAVEGACIÓN (PESTAÑAS PRINCIPALES)
+   ========================================= */
+.tabs-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.tabs-container {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0 0.5rem;
+    scrollbar-width: none;
+}
+.tabs-container::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+    flex: 0 0 auto;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--texto-suave);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.tab-btn:hover { color: var(--primario); background: rgba(13, 110, 253, 0.08); }
+.tab-btn.active {
+    color: var(--primario);
+    background: rgba(13, 110, 253, 0.12);
+    border-color: var(--primario);
+    font-weight: 600;
+}
+
+/* =========================================
+   6. CONTENIDO DE PESTAÑAS Y ANIMACIONES
+   ========================================= */
+.tab-content, .vm-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+.tab-content.active, .vm-content.active { display: block; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#diccionario { padding-top: 1rem; }
+
+.tab-placeholder {
+    text-align: center;
+    padding: 3rem 1rem;
     color: var(--texto-suave);
 }
+.tab-placeholder h2 { color: var(--texto); margin-bottom: 1rem; }
+.tab-placeholder em { font-style: normal; opacity: 0.8; }
 
 /* =========================================
-   5. CONTENIDO PRINCIPAL
+   7. TARJETAS Y TUTORIALES
    ========================================= */
-.container {
-    flex: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
-    width: 100%;
-}
-
-/* =========================================
-   6. TARJETAS DE TÉRMINOS
-   ========================================= */
-.termino {
-    background: var(--tarjeta);
+.termino, .paso {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
     border: 1px solid var(--borde);
     border-radius: var(--radio);
     padding: 1.5rem;
@@ -118,7 +194,7 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.termino:hover {
+.termino:hover, .paso:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
@@ -131,13 +207,70 @@ body {
     border-bottom: 2px solid var(--fondo);
 }
 
-.definicion {
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
+.definicion { font-size: 1.05rem; margin-bottom: 1rem; }
+
+/* Sub-pestañas VM */
+.vm-wrapper { padding: 1rem 0; }
+.vm-nav {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--borde);
+    padding-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.vm-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--texto-suave);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+.vm-btn:hover { color: var(--primario); }
+.vm-btn.active {
+    color: var(--primario);
+    border-bottom-color: var(--primario);
+    font-weight: 600;
+}
+
+.vm-intro {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--codigo-fondo);
+    border-left: 4px solid var(--primario);
+    border-radius: 0 8px 8px 0;
+}
+
+.paso h4 { color: var(--primario); margin-bottom: 0.8rem; font-size: 1.1rem; }
+.paso p { margin-bottom: 1rem; line-height: 1.7; }
+
+.vm-img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.vm-note {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #e7f3ff;
+    border-radius: 8px;
+    color: #0550ae;
 }
 
 /* =========================================
-   7. EJEMPLOS DESPLEGABLES
+   8. CÓDIGO Y EJEMPLOS
    ========================================= */
 details {
     background: var(--codigo-fondo);
@@ -156,18 +289,13 @@ summary {
     align-items: center;
     gap: 0.5rem;
 }
-
 summary::-webkit-details-marker { display: none; }
-
 summary::before {
     content: "▶";
     font-size: 0.8rem;
     transition: transform 0.2s;
 }
-
-details[open] summary::before {
-    transform: rotate(90deg);
-}
+details[open] summary::before { transform: rotate(90deg); }
 
 .codigo {
     padding: 1rem;
@@ -189,280 +317,16 @@ code {
 }
 
 /* =========================================
-   8. PIE DE PÁGINA
-   ========================================= */
-footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    color: var(--texto-suave);
-    font-size: 0.9rem;
-    border-top: 1px solid var(--borde);
-    background: var(--tarjeta);
-}
-/* =========================================
-   10. PESTAÑAS DE NAVEGACIÓN (TABS)
-   ========================================= */
-
-/* Contenedor de la barra de navegación */
-.tabs-nav {
-    background: var(--tarjeta);
-    border-bottom: 1px solid var(--borde);
-    padding: 0.5rem 0;
-    position: sticky; /* Se queda fija arriba al hacer scroll */
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-}
-
-.tabs-container {
-    display: flex;
-    gap: 0.5rem;
-    overflow-x: auto; /* Permite scroll horizontal en móviles */
-    padding: 0 0.5rem;
-    scrollbar-width: none; /* Oculta scrollbar en Firefox */
-}
-
-.tabs-container::-webkit-scrollbar {
-    display: none; /* Oculta scrollbar en Chrome/Safari */
-}
-
-/* Botones de las pestañas */
-.tab-btn {
-    flex: 0 0 auto; /* No se estiran ni encogen */
-    padding: 0.7rem 1.2rem;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--texto-suave);
-    background: transparent;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
-}
-
-/* Efecto hover: cuando pasas el mouse por encima */
-.tab-btn:hover {
-    color: var(--primario);
-    background: rgba(13, 110, 253, 0.08);
-}
-
-/* Estado activo: la pestaña seleccionada */
-.tab-btn.active {
-    color: var(--primario);
-    background: rgba(13, 110, 253, 0.12);
-    border-color: var(--primario);
-    font-weight: 600;
-}
-
-/* =========================================
-   11. CONTENIDO DE PESTAÑAS
-   ========================================= */
-
-/* Todas las secciones de contenido están ocultas por defecto */
-.tab-content {
-    display: none;
-    animation: fadeIn 0.3s ease;
-}
-
-/* Solo la que tiene class="active" se muestra */
-.tab-content.active {
-    display: block;
-}
-
-/* Animación suave al cambiar de pestaña */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Estilo para el texto placeholder (mientras tú añades contenido) */
-.tab-placeholder {
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--texto-suave);
-}
-
-.tab-placeholder h2 {
-    color: var(--texto);
-    margin-bottom: 1rem;
-}
-
-.tab-placeholder em {
-    font-style: normal;
-    opacity: 0.8;
-}
-
-/* =========================================
-   12. AJUSTE PARA EL DICCIONARIO CON PESTAÑAS
-   ========================================= */
-
-/* Como ahora hay navegación fija, añadimos un poco de espacio arriba */
-#diccionario {
-    padding-top: 1rem;
-}
-
-/* =========================================
-   13. RESPONSIVE PARA MÓVILES
+   9. RESPONSIVE (UNIFICADO)
    ========================================= */
 @media (max-width: 600px) {
-    .tab-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-    }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-image { width: 100px; }
+    #buscador { font-size: 16px; }
+    .termino, .paso { padding: 1.2rem; }
     
-    .tabs-container {
-        justify-content: flex-start; /* Alinea a la izquierda para scroll */
-    }
+    .tab-btn, .vm-btn { padding: 0.5rem 0.8rem; font-size: 0.85rem; }
+    .tabs-container { justify-content: flex-start; }
     
-    .hero h1 {
-        font-size: 1.6rem;
-    }
-    
-    .hero-image {
-        width: 100px;
-    }
-}
-/* =========================================
-   14. SUB-PESTAÑAS PARA MÁQUINAS VIRTUALES
-   ========================================= */
-.vm-wrapper {
-  padding: 1rem 0;
-}
-
-.vm-nav {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--borde);
-  padding-bottom: 0.5rem;
-  flex-wrap: wrap; /* Se adapta a móviles */
-}
-
-.vm-btn {
-  padding: 0.6rem 1rem;
-  font-size: 0.9rem;
-  background: transparent;
-  border: none;
-  border-bottom: 3px solid transparent;
-  color: var(--texto-suave);
-  cursor: pointer;
-  transition: all 0.2s;
-  font-weight: 500;
-}
-
-.vm-btn:hover {
-  color: var(--primario);
-}
-
-.vm-btn.active {
-  color: var(--primario);
-  border-bottom-color: var(--primario);
-  font-weight: 600;
-}
-
-/* Contenido de cada sub-pestaña */
-.vm-content {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-.vm-content.active {
-  display: block;
-}
-
-.vm-intro {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--codigo-fondo);
-  border-left: 4px solid var(--primario);
-  border-radius: 0 8px 8px 0;
-}
-
-/* Bloques de pasos del tutorial */
-.paso {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: var(--tarjeta);
-  border: 1px solid var(--borde);
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
-}
-
-.paso h4 {
-  color: var(--primario);
-  margin-bottom: 0.8rem;
-  font-size: 1.1rem;
-}
-
-.paso p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-}
-
-/* Imágenes de tutoriales */
-.vm-img {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  border-radius: 8px;
-  border: 1px solid var(--borde);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  display: block;
-  margin: 0 auto 1rem;
-}
-
-.vm-note {
-  margin-top: 2rem;
-  padding: 1rem;
-  background: #e7f3ff;
-  border-radius: 8px;
-  color: #0550ae;
-}
-
-/* Responsive para sub-pestañas */
-@media (max-width: 600px) {
-  .vm-nav {
-    gap: 0.3rem;
-  }
-  .vm-btn {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.85rem;
-  }
-  .paso {
-    padding: 1rem;
-  }
-}
-/* =========================================
-   15. FONDO CON IMAGEN (NUEVO)
-   ========================================= */
-
-body {
-    /* Imagen de fondo */
-    background-image: 
-        /* TU IMAGEN AQUÍ */
-        url('img/fondoprueba.png');
-    
-    /* Cómo se comporta la imagen */
-    background-size: cover; /* Cubre toda la pantalla */
-    background-position: center; /* Centrada */
-    background-repeat: no-repeat; /* No se repite */
-    background-attachment: fixed; /* Se queda fija al hacer scroll */
-    
-    /* Color de respaldo si la imagen no carga */
-    background-color: #1e3a8a;
-}
-
-/* Ajuste para móviles: imagen más ligera o sin fixed */
-@media (max-width: 600px) {
-    body {
-        background-attachment: scroll; /* Mejor rendimiento en móviles */
-    }
+    body { background-attachment: scroll; } /* Mejor rendimiento en móviles */
 }
