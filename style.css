@@ -33,7 +33,7 @@ body {
     flex-direction: column;
     
     /* Fondo con imagen sin overlay */
-    background: url('img/cirno.png') center/cover no-repeat fixed #1e3a8a;
+    background: url('img/cirnofondo2.png') center/cover no-repeat fixed #1e3a8a;
 }
 
 /* =========================================
