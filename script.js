@@ -79,37 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(idVM).classList.add('active');
         });
     });
-        /* =========================================
-       5. BOTÓN COPIAR CÓDIGO
-       ========================================= */
-    const botonesCopiar = document.querySelectorAll('.btn-copiar');
-
-    botonesCopiar.forEach(boton => {
-        boton.addEventListener('click', async () => {
-            // 1. Encontrar el elemento <code> dentro del mismo bloque
-            const codigoBlock = boton.closest('.codigo');
-            const textoCodigo = codigoBlock.querySelector('code').textContent;
-
-            try {
-                // 2. Copiar al portapapeles (API moderna)
-                await navigator.clipboard.writeText(textoCodigo.trim());
-
-                // 3. Feedback visual: cambiar texto y color
-                const textoOriginal = boton.innerHTML;
-                boton.innerHTML = '✅ ¡Copiado!';
-                boton.classList.add('copiado');
-
-                // 4. Restaurar después de 2 segundos
-                setTimeout(() => {
-                    boton.innerHTML = textoOriginal;
-                    boton.classList.remove('copiado');
-                }, 2000);
-
-            } catch (err) {
-                // Fallback si la API falla (navegadores muy viejos)
-                console.error('Error al copiar:', err);
-                alert('No se pudo copiar. Selecciona y copia manualmente.');
-            }
-        });
-    });
+    
 });

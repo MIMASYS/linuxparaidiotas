@@ -331,7 +331,7 @@ code {
     body { background-attachment: scroll; } /* Mejor rendimiento en móviles */
 }
 /* =========================================
-   10. BOTÓN COPIAR CÓDIGO
+   1. BOTÓN COPIAR CÓDIGO
    ========================================= */
 
 /* Contenedor del código debe ser relativo para posicionar el botón */
