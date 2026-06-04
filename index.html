@@ -120,12 +120,34 @@
                                 🌐 Ir a la página de descarga oficial
                             </a>
                         </p>
-                        <img src="img/vm/pasod1.png" alt="Paso 1: Sitio oficial" class="vm-img">
-                        <img src="img/vm/pasod2.png" alt="Paso 2: Instalación" class="vm-img">
-                        <img src="img/vm/pasod3.png" alt="Paso 3: Finalizar" class="vm-img">
-                        <div class="vm-note">
-                            💡 <strong>Consejo:</strong> Marca "Create desktop shortcut" para acceso rápido.
-                        </div>
+                        <div class="carrusel">
+    <!-- Contenedor de slides -->
+    <div class="carrusel-slides">
+        <div class="carrusel-slide active">
+            <img src="img/vm/pasod1.png" alt="Paso 1: Sitio oficial" class="vm-img">
+            <p class="carrusel-caption">Paso 1: Página de descarga</p>
+        </div>
+        <div class="carrusel-slide">
+            <img src="img/vm/pasod2.png" alt="Paso 2: Instalación" class="vm-img">
+            <p class="carrusel-caption">Paso 2: Asistente de instalación</p>
+        </div>
+        <div class="carrusel-slide">
+            <img src="img/vm/pasod3.png" alt="Paso 3: Finalizar" class="vm-img">
+            <p class="carrusel-caption">Paso 3: Configuración final</p>
+        </div>
+    </div>
+
+    <!-- Botones de navegación -->
+    <button class="carrusel-btn prev" onclick="moverCarrusel(-1)">❮</button>
+    <button class="carrusel-btn next" onclick="moverCarrusel(1)">❯</button>
+
+    <!-- Indicadores (puntos) -->
+    <div class="carrusel-indicadores">
+        <span class="indicador active" onclick="irAlSlide(0)"></span>
+        <span class="indicador" onclick="irAlSlide(1)"></span>
+        <span class="indicador" onclick="irAlSlide(2)"></span>
+    </div>
+</div>
                     </div>
 
                     <!-- Tutorial: Crear VM Linux -->

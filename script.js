@@ -81,3 +81,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
 });
+/* =========================================
+   6. CARRUSEL DE IMÁGENES
+   ========================================= */
+
+function moverCarrusel(direccion) {
+    const slides = document.querySelectorAll('.carrusel-slide');
+    const indicadores = document.querySelectorAll('.indicador');
+    let slideActivo = document.querySelector('.carrusel-slide.active');
+    let indiceActivo = Array.from(slides).indexOf(slideActivo);
+    
+    // Calcular nuevo índice
+    let nuevoIndice = indiceActivo + direccion;
+    
+    // Si llegamos al final, volver al inicio (loop)
+    if (nuevoIndice >= slides.length) {
+        nuevoIndice = 0;
+    } else if (nuevoIndice < 0) {
+        nuevoIndice = slides.length - 1;
+    }
+    
+    // Remover clase active del actual
+    slideActivo.classList.remove('active');
+    indicadores[indiceActivo].classList.remove('active');
+    
+    // Añadir clase active al nuevo
+    slides[nuevoIndice].classList.add('active');
+    indicadores[nuevoIndice].classList.add('active');
+}
+
+function irAlSlide(indice) {
+    const slides = document.querySelectorAll('.carrusel-slide');
+    const indicadores = document.querySelectorAll('.indicador');
+    let slideActivo = document.querySelector('.carrusel-slide.active');
+    let indiceActivo = Array.from(slides).indexOf(slideActivo);
+    
+    // Si ya está en ese slide, no hacer nada
+    if (indice === indiceActivo) return;
+    
+    // Remover active del actual
+    slideActivo.classList.remove('active');
+    indicadores[indiceActivo].classList.remove('active');
+    
+    // Añadir active al nuevo
+    slides[indice].classList.add('active');
+    indicadores[indice].classList.add('active');
+}
+
+// Opcional: Autoplay (cambia cada 5 segundos)
+// Descomenta si quieres que avance solo
+/*
+setInterval(() => {
+    moverCarrusel(1);
+}, 5000);
+*/
