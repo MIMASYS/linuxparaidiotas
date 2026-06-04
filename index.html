@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux para idiotas</title>
-        <!-- Favicon: El icono en la pestaña del navegador -->
     <link rel="icon" type="image/png" href="img/logobaka.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ========================================== -->
-    <!-- CABECERA CON LOGO Y TÍTULO -->
-    <!-- ========================================== -->
+    <!-- CABECERA -->
     <header class="hero">
         <div class="container">
-            <img src="img/logobaka.png" alt="Kana" class="hero-image">
+            <img src="img/logobaka.png" alt="Logo" class="hero-image">
             <h1>Linux para idiotas</h1>
-            <p class="subtitle">Ultima actualizacion 04/06/2026 Hecho con amor e internet</p>
+            <p class="subtitle">Última actualización 04/06/2026 • Hecho con amor e internet</p>
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- BARRA DE NAVEGACIÓN (PESTAÑAS) -->
-    <!-- ========================================== -->
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <nav class="tabs-nav">
         <div class="container tabs-container">
-            <!-- Botones de las pestañas: data-tab indica qué sección mostrar -->
             <button class="tab-btn active" data-tab="diccionario">Diccionario</button>
             <button class="tab-btn" data-tab="vm">Máquinas Virtuales</button>
             <button class="tab-btn" data-tab="enlaces">Enlaces y Acerca de</button>
@@ -35,17 +29,13 @@
         </div>
     </nav>
 
-    <!-- ========================================== -->
-    <!-- CONTENIDO DE LAS PESTAÑAS -->
-    <!-- ========================================== -->
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="container">
-        
-        <!-- PESTAÑA 1: DICCIONARIO (activa por defecto) -->
+
+        <!-- PESTAÑA: DICCIONARIO -->
         <section id="diccionario" class="tab-content active">
-            <!-- Aquí va tu diccionario existente -->
             <section id="lista-terminos">
-                
-                <!-- TÉRMINO 1: ls -->
+
                 <article class="termino">
                     <h2>ls</h2>
                     <p class="definicion">Lista el contenido de un directorio.</p>
@@ -55,7 +45,6 @@
                     </details>
                 </article>
 
-                <!-- TÉRMINO 2: cd -->
                 <article class="termino">
                     <h2>cd</h2>
                     <p class="definicion">Cambia de directorio/carpetas.</p>
@@ -64,169 +53,159 @@
                         <div class="codigo"><code>cd Documentos</code></div>
                     </details>
                 </article>
-                
-                <!-- Término 3: pwd -->
+
                 <article class="termino">
                     <h2>pwd</h2>
-                    <p class="definicion" > Muestra la ruta del directorio donde estas actualmente.</p>
+                    <p class="definicion">Muestra la ruta del directorio donde estás actualmente.</p>
                     <details>
-                <summary>Ejemplo</summary>
-                        <div class="codigo"><code>pwd/home/usuario/Documentos</code></div>
+                        <summary>Ejemplo</summary>
+                        <div class="codigo"><code>pwd</code> → /home/usuario/Documentos</div>
                     </details>
-                  </article>
-
-                <!-- Termino 4: loadkeys  -->
-                 <article class="termino">
-                  <h2>loadkeys</h2>
-                  <p class="definicion"> Establece la configuracion del teclado</p>
-                <details>
-                  <summary>Ejemplo</summary>
-                  <div class="codigo"><code>loadkeys la-latin1</code></div>
-                </details> 
                 </article>
-              
+
+                <article class="termino">
+                    <h2>loadkeys</h2>
+                    <p class="definicion">Establece la configuración del teclado.</p>
+                    <details>
+                        <summary>Ejemplo</summary>
+                        <div class="codigo"><code>loadkeys la-latin1</code></div>
+                    </details>
+                </article>
+
             </section>
         </section>
 
-        
-        <!-- PESTAÑA 2: MÁQUINAS VIRTUALES -->
-<section id="vm" class="tab-content">
-  <div class="vm-wrapper">
-    
-    <!-- NAVEGACIÓN INTERNA (SUB-PESTAÑAS) -->
-    <nav class="vm-nav">
-      <button class="vm-btn active" data-vm="virtualbox"> VirtualBox</button>
-      <button class="vm-btn" data-vm="vmware"> VMware</button>
-      <button class="vm-btn" data-vm="proxmox"> Proxmox</button>
-      <button class="vm-btn" data-vm="azure">️ Azure</button>
-    </nav>
+        <!-- PESTAÑA: MÁQUINAS VIRTUALES -->
+        <section id="vm" class="tab-content">
+            <div class="vm-wrapper">
 
-    <!-- CONTENIDO: VIRTUALBOX (Activo por defecto) -->
-    <div id="virtualbox" class="vm-content active">
-      <h2> Oracle VirtualBox</h2>
-      <p class="vm-intro">
-        VirtualBox es un software de virtualización multiplataforma. 
-        Te permite crear "computadoras dentro de tu computadora" para probar Linux sin riesgos.
-      </p>
-        <div class="paso">
-  <!-- 1. TÍTULO DEL PASO -->
-  <h4>Requisitos minimos para correr VirtualBox</h4>
-   <!-- 3. LISTA (opcional detalles o requisitos) -->
-  <ul>
-    <li>Requiere Windows 10/11, macOS 12+ o Ubuntu 22.04+ 
-      (¿no sabes las caracteristicas de tu pc? presiona las teclas windows + pausa y averigualo!)</li>
-    <li>Mínimo 4 GB de RAM libres</li>
-    <li>Virtualización activada en la BIOS
-      (Este paso es fundamental para que VirtualBox funcione correctamente. Si no sabes cómo, puedes verificarlo en el administrador de tareas.)
-    </li>
-    <li>Espacio en disco suficiente (minimo 20 GB)</li>
-  </ul>
- </p> 
-</div>
+                <!-- Sub-pestañas VM -->
+                <nav class="vm-nav">
+                    <button class="vm-btn active" data-vm="virtualbox">VirtualBox</button>
+                    <button class="vm-btn" data-vm="vmware">VMware</button>
+                    <button class="vm-btn" data-vm="proxmox">Proxmox</button>
+                    <button class="vm-btn" data-vm="azure">Azure</button>
+                </nav>
 
-   <div class="paso">
-  <!-- 1. TÍTULO DEL PASO -->
-  <h4>Descargar e instalar VirtualBox</h4>
-  
-  <!-- 2. EXPLICACIÓN -->
-  <p>
-    Ve al sitio oficial de VirtualBox o da click al enlace de abajo y descarga la versión para tu sistema operativo. 
-    También instala el extension pack ya que será necesario más adelante.
-  </p>
-  
-  <!-- ENLACE EN SU PROPIO PÁRRAFO -->
-  <p>
-     <a href="https://www.virtualbox.org/" target="_blank">Ir a la página de descarga oficial</a>
-  </p>
+                <!-- VirtualBox (Activo) -->
+                <div id="virtualbox" class="vm-content active">
+                    <h2>Oracle VirtualBox</h2>
+                    <p class="vm-intro">
+                        VirtualBox es un software de virtualización multiplataforma. 
+                        Te permite crear "computadoras dentro de tu computadora" para probar Linux sin riesgos.
+                    </p>
 
-  <!-- TUS 3 IMÁGENES -->
-  <img src="img/vm/pasod1.png" alt="Paso 1: Descarga del sitio oficial" class="vm-img">
-  <img src="img/vm/pasod2.png" alt="Paso 1: Instalación y siguiente" class="vm-img">
-  <img src="img/vm/pasod3.png" alt="Paso 1: Finalizar instalación" class="vm-img">
-    
-  <!-- 5. PIE DE FOTO (opcional pero recomendado para tutoriales) -->
-  <p class="img-caption">.</p>
+                    <!-- Requisitos -->
+                    <div class="paso">
+                        <h4>Requisitos mínimos</h4>
+                        <ul>
+                            <li>Windows 10/11, macOS 12+ o Ubuntu 22.04+ 
+                                (<em>¿No sabes las specs de tu PC? Presiona <code>Win + Pausa</code></em>)</li>
+                            <li>Mínimo 4 GB de RAM libres</li>
+                            <li>Virtualización activada en la BIOS 
+                                (<em>Verifícalo en el Administrador de tareas → Rendimiento</em>)</li>
+                            <li>Espacio en disco: mínimo 20 GB</li>
+                        </ul>
+                    </div>
 
-  <!-- 6. NOTA O CONSEJO -->
-  <div class="vm-note">
-    💡 <strong>Consejo:</strong> Marca la casilla "Create desktop shortcut" durante la instalación para acceder rápido.
-  </div>
-</div>
+                    <!-- Descarga e instalación -->
+                    <div class="paso">
+                        <h4>Descargar e instalar VirtualBox</h4>
+                        <p>
+                            Ve al sitio oficial y descarga la versión para tu sistema operativo. 
+                            También instala el <strong>Extension Pack</strong>, será necesario más adelante.
+                        </p>
+                        <p>
+                            <a href="https://www.virtualbox.org/" target="_blank">
+                                🌐 Ir a la página de descarga oficial
+                            </a>
+                        </p>
+                        <img src="img/vm/pasod1.png" alt="Paso 1: Sitio oficial" class="vm-img">
+                        <img src="img/vm/pasod2.png" alt="Paso 2: Instalación" class="vm-img">
+                        <img src="img/vm/pasod3.png" alt="Paso 3: Finalizar" class="vm-img">
+                        <div class="vm-note">
+                            💡 <strong>Consejo:</strong> Marca "Create desktop shortcut" para acceso rápido.
+                        </div>
+                    </div>
 
-      <!-- TUTORIAL 1: LINUX MINT -->
-      <h3>🎓 Tutorial 1: Instalar Linux en VirtualBox</h3>
-      
-      <!-- PASO 1 -->
-      <div class="paso">
-        <h4>Paso 1: Descargar e instalar VirtualBox</h4>
-        <p>Ve al sitio oficial y descarga la versión para tu sistema operativo.</p>
-        <!-- REEMPLAZA "img/vm/paso1.png" con tu imagen real -->
-        <img src="img/vm/paso1.png" alt="Captura de descarga de VirtualBox" class="vm-img">
-      </div>
+                    <!-- Tutorial: Crear VM Linux -->
+                    <h3>🎓 Tutorial: Instalar Linux en VirtualBox</h3>
 
-      <!-- PASO 2 -->
-      <div class="paso">
-        <h4>Paso 2: Crear la máquina virtual</h4>
-        <p>Abre VirtualBox → "Nueva" → Nombre: Linux Mint → Tipo: Linux → Versión: Ubuntu (64-bit).</p>
-        <img src="img/vm/paso2.png" alt="Configuración de nueva VM" class="vm-img">
-      </div>
+                    <div class="paso">
+                        <h4>Paso 1: Crear nueva máquina virtual</h4>
+                        <p>Abre VirtualBox → "Nueva" → Nombre: Linux Mint → Tipo: Linux → Versión: Ubuntu (64-bit).</p>
+                        <img src="img/vm/paso1.png" alt="Nueva VM: configuración básica" class="vm-img">
+                    </div>
 
-      <!-- PASO 3 -->
-      <div class="paso">
-        <h4>Paso 3: Asignar memoria y disco</h4>
-        <p>Recomendado: 4GB RAM mínimo, 25GB de disco duro dinámico.</p>
-        <img src="img/vm/paso3.png" alt="Asignación de recursos" class="vm-img">
-      </div>
+                    <div class="paso">
+                        <h4>Paso 2: Asignar memoria RAM</h4>
+                        <p>Recomendado: 4096 MB (4 GB) mínimo. No excedas la zona verde del slider.</p>
+                        <img src="img/vm/paso2.png" alt="Asignación de RAM" class="vm-img">
+                    </div>
 
-      <!-- ✏️ PARA AÑADIR MÁS PASOS: COPIA UN BLOQUE <div class="paso"> Y PÉGALO AQUÍ -->
-      
-      <p class="vm-note">💡 <strong>Tip:</strong> Recuerda activar la virtualización (VT-x/AMD-V) en la BIOS de tu PC.</p>
-    </div>
+                    <div class="paso">
+                        <h4>Paso 3: Crear disco duro virtual</h4>
+                        <p>Elige "VDI", "Reservado dinámicamente" y asigna 25 GB mínimo.</p>
+                        <img src="img/vm/paso3.png" alt="Configuración del disco virtual" class="vm-img">
+                    </div>
 
-    <!-- CONTENIDO: VMWARE (Vacío, listo para que lo llenes después) -->
-    <div id="vmware" class="vm-content">
-      <h2>🔷 VMware Workstation Player</h2>
-      <p><em>Contenido en construcción. Aquí irá la guía paso a paso.</em></p>
-    </div>
+                    <p class="vm-note">
+                        💡 <strong>Tip final:</strong> Recuerda activar VT-x/AMD-V en la BIOS antes de empezar.
+                    </p>
+                </div>
 
-    <!-- CONTENIDO: PROXMOX -->
-    <div id="proxmox" class="vm-content">
-      <h2>🐧 Proxmox VE</h2>
-      <p><em>Contenido en construcción. Servidores virtualizados y contenedores.</em></p>
-    </div>
+                <!-- Otras plataformas (placeholders) -->
+                <div id="vmware" class="vm-content">
+                    <h2>VMware Workstation Player</h2>
+                    <p><em>Contenido en construcción.</em></p>
+                </div>
+                <div id="proxmox" class="vm-content">
+                    <h2>Proxmox VE</h2>
+                    <p><em>Contenido en construcción.</em></p>
+                </div>
+                <div id="azure" class="vm-content">
+                    <h2>Azure Virtual Machines</h2>
+                    <p><em>Contenido en construcción.</em></p>
+                </div>
 
-    <!-- CONTENIDO: AZURE -->
-    <div id="azure" class="vm-content">
-      <h2>☁️ Azure Virtual Machines</h2>
-      <p><em>Contenido en construcción. Máquinas virtuales en la nube de Microsoft.</em></p>
-    </div>
-
-  </div>
-</section>
-        <!-- PESTAÑA 4: COMUNIDAD -->
-        <section id="comunidad" class="tab-content">
-          <section class="termino">
-            <div class="tab-placeholder">
-                <h2>Comunidad</h2>
-                <p><em>Discord oficial de Linux Para Idiotas.</em></p>
-                  <a href="https://discord.gg/ZTKEVdMW" target="_blank">Únete a nuestro Discord</a>
-                  <img src="img/kana.png" alt="Discord" class="vm-img" style="width: 150px; margin-top: 20px;">
-                <!-- ✏️ BORRA lo de arriba y añade tu contenido aquí -->
             </div>
-            </section>
+        </section>
+
+        <!-- PESTAÑA: COMUNIDAD -->
+        <section id="comunidad" class="tab-content">
+            <div class="tab-placeholder">
+                <h2>👥 Comunidad</h2>
+                <p>Únete a nuestro servidor de Discord para dudas, ayuda y compartir avances.</p>
+                <p>
+                    <a href="https://discord.gg/ZTKEVdMW" target="_blank" class="btn-discord">
+                        🚀 Unirme al Discord
+                    </a>
+                </p>
+                <img src="img/logobaka.png" alt="Logo comunidad" class="vm-img" style="max-width: 200px; margin-top: 1rem;">
+            </div>
+        </section>
+
+        <!-- PESTAÑA: ENLACES (vacía, lista para tu contenido) -->
+        <section id="enlaces" class="tab-content">
+            <div class="tab-placeholder">
+                <h2>🔗 Enlaces y Acerca de</h2>
+                <p><em>Contenido en construcción.</em></p>
+            </div>
         </section>
 
     </main>
-    
 
-    <!-- ========================================== -->
-    <!-- PIE DE PÁGINA -->
-    <!-- ========================================== -->
+    <!-- FOOTER MEJORADO -->
     <footer>
-        <p>Linux Para Idiotas</p>
+        <div class="container">
+            <p><strong>Linux Para Idiotas</strong> &copy; 2026</p>
+            <p class="credits">
+                Linux para idiotas hecho por un idiota | 
+                <a href="https://github.com/TU_USUARIO" target="_blank">Ver código en GitHub</a>
+            </p>
+        </div>
     </footer>
 
-    <!-- JavaScript para las pestañas -->
     <script src="script.js" defer></script>
 </body>
 </html>
