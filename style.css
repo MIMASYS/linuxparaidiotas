@@ -330,3 +330,61 @@ code {
     
     body { background-attachment: scroll; } /* Mejor rendimiento en móviles */
 }
+/* =========================================
+   10. BOTÓN COPIAR CÓDIGO
+   ========================================= */
+
+/* Contenedor del código debe ser relativo para posicionar el botón */
+.codigo {
+    position: relative; /* Necesario para que el botón se posicione dentro */
+    padding-right: 90px; /* Espacio para el botón en escritorio */
+}
+
+/* El botón en sí */
+.btn-copiar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-family: inherit;
+    background: var(--primario);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Mostrar botón al pasar el mouse sobre el bloque de código */
+.codigo:hover .btn-copiar {
+    opacity: 1;
+}
+
+/* Efecto hover del botón */
+.btn-copiar:hover {
+    background: var(--primario-hover);
+}
+
+/* Estado "copiado" (cambia a verde) */
+.btn-copiar.copiado {
+    background: #10b981; /* Verde éxito */
+}
+
+/* En móviles: siempre visible y sin padding extra */
+@media (max-width: 600px) {
+    .codigo {
+        padding-right: 1rem;
+    }
+    .btn-copiar {
+        opacity: 1; /* Siempre visible en móvil */
+        top: 4px;
+        right: 4px;
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+}
